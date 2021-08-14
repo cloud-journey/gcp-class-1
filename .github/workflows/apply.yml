@@ -1,0 +1,54 @@
+name: Terraform Apply PR
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  apply:
+    if: ${{ github.event.comment.body == 'Terraform, go ahead and apply it!' && github.event.comment.author_association == 'OWNER' }}
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Set Learner ID Terraform Variable
+      run: echo "TF_VAR_learner_id=$(cat learner-id)" >> $GITHUB_ENV
+    
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        export_default_credentials: true
+
+    - uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: "1.0.4"
+    
+    - name: Terraform fmt
+      id: fmt
+      run: terraform fmt -check
+      continue-on-error: true
+
+    - name: Terraform Init
+      id: init
+      run: terraform init
+
+    - name: Terraform Select Workspace
+      id: validate
+      run: terraform workspace select "$TF_VAR_learner_id"
+
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate -no-color
+
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color
+
+    - name: Terraform Plan
+      id: plan
+      run: terraform apply -auto-approve -no-color
