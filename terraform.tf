@@ -1,3 +1,5 @@
+# Terraform configuration
+
 terraform {
   required_providers {
     google = {
