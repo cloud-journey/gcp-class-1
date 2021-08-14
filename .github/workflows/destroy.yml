@@ -48,6 +48,6 @@ jobs:
       id: plan
       run: terraform plan -no-color
 
-    - name: Terraform Plan
+    - name: Terraform Destroy
       id: destroy
       run: terraform destroy -auto-approve -no-color
