@@ -6,7 +6,7 @@ on:
 
 jobs:
   apply:
-    if: ${{ github.event.comment.body == 'Terraform, go ahead and apply it!' }}
+    if: ${{ github.event.comment.body == 'Terraform, go ahead and apply it!' && github.event.comment.author_association == 'OWNER' }}
     runs-on: ubuntu-latest
     environment: development
     steps:
@@ -37,7 +37,7 @@ jobs:
       run: terraform init
 
     - name: Terraform Select Workspace
-      id: validate
+      id: workspace
       run: terraform workspace select "$TF_VAR_learner_id"
 
     - name: Terraform Validate
