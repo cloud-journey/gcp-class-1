@@ -3,7 +3,6 @@ name: Terraform Apply PR
 on:
   pull_request_review_comment:
     types: [created, edited]
-    branches: [main]
 
 jobs:
   apply:
