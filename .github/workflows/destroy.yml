@@ -37,7 +37,7 @@ jobs:
       run: terraform init
 
     - name: Terraform Select Workspace
-      id: validate
+      id: workspace
       run: terraform workspace select "$TF_VAR_learner_id"
 
     - name: Terraform Validate
@@ -49,5 +49,5 @@ jobs:
       run: terraform plan -no-color
 
     - name: Terraform Plan
-      id: plan
+      id: destroy
       run: terraform destroy -auto-approve -no-color

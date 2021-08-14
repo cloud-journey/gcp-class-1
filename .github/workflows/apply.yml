@@ -1,8 +1,8 @@
 name: Terraform Apply PR
 
 on:
-  pull_request:
-    types: [closed]
+  pull_request_review_comment:
+    types: [created, edited]
     branches: [main]
 
 jobs:
@@ -50,5 +50,5 @@ jobs:
       run: terraform plan -no-color
 
     - name: Terraform Plan
-      id: plan
+      id: apply
       run: terraform apply -auto-approve -no-color
