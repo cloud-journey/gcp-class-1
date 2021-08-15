@@ -38,6 +38,8 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: "0"
 
     - name: Set Learner ID Terraform Variable
       run: echo "TF_VAR_learner_id=$(cat learner-id)" >> $GITHUB_ENV
