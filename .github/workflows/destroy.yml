@@ -3,7 +3,33 @@ name: Terraform Destroy PR
 on:
   pull_request:
     types: [closed]
-    branches: [main]
+    branches:
+      - "main"
+      - "8C1C"
+      - "FE5A"
+      - "7329"
+      - "3DF4"
+      - "E4E4"
+      - "BDEC"
+      - "97F1"
+      - "CFA1"
+      - "606B"
+      - "A709"
+      - "09B0"
+      - "AC1C"
+      - "FCF9"
+      - "3A9D"
+      - "B675"
+      - "7949"
+      - "7F24"
+      - "139D"
+      - "B0AE"
+      - "F029"
+      - "F33E"
+      - "C4C4"
+      - "E855"
+      - "5BC0"
+      - "AB8B"
 
 jobs:
   destroy:
