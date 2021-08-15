@@ -38,6 +38,11 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: "0"
+
+    - name: Run Gitleaks
+      uses: zricethezav/gitleaks-action@master
 
     - name: Set Learner ID Terraform Variable
       run: echo "TF_VAR_learner_id=$(cat learner-id)" >> $GITHUB_ENV
@@ -81,8 +86,6 @@ jobs:
           verbose: true
           output: results.sarif
           format: sarif
-          # Force 0 exit code to allow SARIF file generation
-          # This will handover control about PR rejection to the GitHub side
           max-allowed-issues: 2147483647
       
     - name: Upload SARIF results file
