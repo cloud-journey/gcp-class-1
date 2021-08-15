@@ -88,6 +88,7 @@ Vamos exemplificar como esse fluxo funciona utilizando o aprendiz `victor.franca
 8. Quando o `victor.franca` conclui que finalizou o exercício prático, ele clica no botão `Ready for review`;
    1. Isso indicará ao guia que o mesmo poderá avaliar os resultados do exercício, caso alguma modificação precise ser feita, o PR voltará para o estado de "Draft" e seguirá novamente o passo 8;
    2. Ao mesmo tempo, ao indicar que um PR está pronto para ser revisado, o GitHub Actions irá dispará uma automação que valida o código Terraform produzido;
+   3. Essa automação também busca valores sensíveis no repositório com o [Gitleaks](https://github.com/zricethezav/gitleaks) e valida alguns parâmetros de qualidade utilizando o [Codacy](https://codacy.com);
 9. Após as alterações feitas, a automação de validação obter êxito e a revisão concluída, o guia comenta em um arquivo do PR: `Terraform, go ahead and apply it!`;
    1.  Isso irá disparar uma automação (workflow) no GitHub Actions que irá provisionar sua infraestrutura na nuvem;
    2.  Nesse momento o guia pedirá para que você valide sua infraestrutura agora provisionada na nuvem;
@@ -96,6 +97,8 @@ Vamos exemplificar como esse fluxo funciona utilizando o aprendiz `victor.franca
     2.  Ao fechar um PR, o GitHub Actions executará uma automação para remover todos os recursos provisionados na nuvem, já que agora não são mais necessários para o estudo;
 
 ## Issues
+
+As issues nesse repositório servem para abrir discussões sobre as sessões de estudo e temas relacionados. Caso você tenha alguma dúvida que não está contemplada em uma issue, sinta-se livre para abrir uma nova explicando a questão para que outras pessoas possam colaborar.
 
 ## Milestones
 
