@@ -38,6 +38,11 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: "0"
+
+    - name: Run Gitleaks
+      uses: zricethezav/gitleaks-action@master
 
     - name: Set Learner ID Terraform Variable
       run: echo "TF_VAR_learner_id=$(cat learner-id)" >> $GITHUB_ENV
@@ -73,3 +78,18 @@ jobs:
     - name: Terraform Plan
       id: plan
       run: terraform plan -no-color
+    
+    - name: Run Codacy Analysis CLI
+      uses: codacy/codacy-analysis-cli-action@master
+      with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          verbose: true
+          output: results.sarif
+          format: sarif
+          max-allowed-issues: 2147483647
+      
+    - name: Upload SARIF results file
+      uses: github/codeql-action/upload-sarif@v1
+      if: ${{ hashFiles('yourfile.txt') != '' }}
+      with:
+        sarif_file: results.sarif
