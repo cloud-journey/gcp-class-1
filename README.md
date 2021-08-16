@@ -14,33 +14,36 @@ Esse repositório é destinado a todo o conteúdo de educação sobre nuvem e o 
 
 Cada aprendiz tem um ID, memorize o seu ID pois ele será necessário durante todo o período do curso. O link do ID leva direto para a branch de estudo de cada aprendiz.
 
-| Aprendiz            | ID                                                             |
-| ------------------- | -------------------------------------------------------------- |
-| victor.franca       | [8C1C](https://github.com/cloud-journey/gcp-class-1/tree/8C1C) |
-| anderson.damasceno  | [FE5A](https://github.com/cloud-journey/gcp-class-1/tree/FE5A) |
-| antonio.raposo      | [7329](https://github.com/cloud-journey/gcp-class-1/tree/7329) |
-| danielle.benites    | [3DF4](https://github.com/cloud-journey/gcp-class-1/tree/3DF4) |
-| dejair.santos       | [E4E4](https://github.com/cloud-journey/gcp-class-1/tree/E4E4) |
-| diego.doi           | [BDEC](https://github.com/cloud-journey/gcp-class-1/tree/BDEC) |
-| karla.nascimento    | [97F1](https://github.com/cloud-journey/gcp-class-1/tree/97F1) |
-| luciano.torquato    | [CFA1](https://github.com/cloud-journey/gcp-class-1/tree/CFA1) |
-| luiz.andrade        | [606B](https://github.com/cloud-journey/gcp-class-1/tree/606B) |
-| marisa.cavalcanti   | [A709](https://github.com/cloud-journey/gcp-class-1/tree/A709) |
-| paulo.carmo         | [09B0](https://github.com/cloud-journey/gcp-class-1/tree/09B0) |
-| ricson.sampaio      | [AC1C](https://github.com/cloud-journey/gcp-class-1/tree/AC1C) |
-| thiago.castilho     | [FCF9](https://github.com/cloud-journey/gcp-class-1/tree/FCF9) |
-| thomas.bispo        | [3A9D](https://github.com/cloud-journey/gcp-class-1/tree/3A9D) |
-| tiago.alexandre     | [B675](https://github.com/cloud-journey/gcp-class-1/tree/B675) |
-| ygor.pereira        | [7949](https://github.com/cloud-journey/gcp-class-1/tree/7949) |
-| guilherme.kojima    | [7F24](https://github.com/cloud-journey/gcp-class-1/tree/7F24) |
-| bruno.avelar        | [139D](https://github.com/cloud-journey/gcp-class-1/tree/139D) |
-| claudemir.junior    | [B0AE](https://github.com/cloud-journey/gcp-class-1/tree/B0AE) |
-| elton.luiz          | [F029](https://github.com/cloud-journey/gcp-class-1/tree/F029) |
-| jonatha.brassolatti | [F33E](https://github.com/cloud-journey/gcp-class-1/tree/F33E) |
-| julio.barcellos     | [C4C4](https://github.com/cloud-journey/gcp-class-1/tree/C4C4) |
-| klelber.xavier      | [E855](https://github.com/cloud-journey/gcp-class-1/tree/E855) |
-| lucas.praxedes      | [5BC0](https://github.com/cloud-journey/gcp-class-1/tree/5BC0) |
-| rodrigo.cassiano    | [AB8B](https://github.com/cloud-journey/gcp-class-1/tree/AB8B) |
+| Aprendiz            | ID                                                             | Username              |
+| ------------------- | -------------------------------------------------------------- | --------------------- |
+| victor.franca       | [8C1C](https://github.com/cloud-journey/gcp-class-1/tree/8C1C) |                       |
+| anderson.damasceno  | [FE5A](https://github.com/cloud-journey/gcp-class-1/tree/FE5A) | Anderberserk          |
+| antonio.raposo      | [7329](https://github.com/cloud-journey/gcp-class-1/tree/7329) |                       |
+| danielle.benites    | [3DF4](https://github.com/cloud-journey/gcp-class-1/tree/3DF4) | danibenites           |
+| dejair.santos       | [E4E4](https://github.com/cloud-journey/gcp-class-1/tree/E4E4) | dejair-tech           |
+| diego.doi           | [BDEC](https://github.com/cloud-journey/gcp-class-1/tree/BDEC) |                       |
+| karla.nascimento    | [97F1](https://github.com/cloud-journey/gcp-class-1/tree/97F1) |                       |
+| luciano.torquato    | [CFA1](https://github.com/cloud-journey/gcp-class-1/tree/CFA1) |                       |
+| luiz.andrade        | [606B](https://github.com/cloud-journey/gcp-class-1/tree/606B) |                       |
+| marisa.cavalcanti   | [A709](https://github.com/cloud-journey/gcp-class-1/tree/A709) |                       |
+| paulo.carmo         | [09B0](https://github.com/cloud-journey/gcp-class-1/tree/09B0) |                       |
+| ricson.sampaio      | [AC1C](https://github.com/cloud-journey/gcp-class-1/tree/AC1C) |                       |
+| thiago.castilho     | [FCF9](https://github.com/cloud-journey/gcp-class-1/tree/FCF9) |                       |
+| thomas.bispo        | [3A9D](https://github.com/cloud-journey/gcp-class-1/tree/3A9D) |                       |
+| tiago.alexandre     | [B675](https://github.com/cloud-journey/gcp-class-1/tree/B675) | tasale                |
+| ygor.pereira        | [7949](https://github.com/cloud-journey/gcp-class-1/tree/7949) |                       |
+| guilherme.kojima    | [7F24](https://github.com/cloud-journey/gcp-class-1/tree/7F24) |                       |
+| bruno.avelar        | [139D](https://github.com/cloud-journey/gcp-class-1/tree/139D) | AvelarB               |
+| claudemir.junior    | [B0AE](https://github.com/cloud-journey/gcp-class-1/tree/B0AE) | claudemirAvelino      |
+| elton.luiz          | [F029](https://github.com/cloud-journey/gcp-class-1/tree/F029) |                       |
+| jonatha.brassolatti | [F33E](https://github.com/cloud-journey/gcp-class-1/tree/F33E) |                       |
+| julio.barcellos     | [C4C4](https://github.com/cloud-journey/gcp-class-1/tree/C4C4) |                       |
+| klelber.xavier      | [E855](https://github.com/cloud-journey/gcp-class-1/tree/E855) | betodoescher          |
+| lucas.praxedes      | [5BC0](https://github.com/cloud-journey/gcp-class-1/tree/5BC0) | LucasPinheiroCarvalho |
+| rodrigo.cassiano    | [AB8B](https://github.com/cloud-journey/gcp-class-1/tree/AB8B) |                       |
+| fagner.carvalho     | [C08C](https://github.com/cloud-journey/gcp-class-1/tree/C08C) |                       |
+| ricardo.baptista    | [4BF8](https://github.com/cloud-journey/gcp-class-1/tree/4BF8) | ribaptista            |
+| elton.ferreira      | [08C7](https://github.com/cloud-journey/gcp-class-1/tree/08C7) |                       |
 
 ## Branches
 
