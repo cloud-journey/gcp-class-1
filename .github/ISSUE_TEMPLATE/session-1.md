@@ -2,7 +2,7 @@
 name: "[session-1]"
 about: Primeira sessão
 title: "[session-1] Formando as equipes e aprofundando nos conceitos sobre nuvem"
-labels: documentation, pt-br
+labels: session, pt-br, conceptual
 assignees: vflopes
 
 ---
@@ -73,6 +73,8 @@ E nesse curso vamos falar especificamente da **Google Cloud**. Ao longo do curso
 > **🚀 Pergunta Bônus B1:** Quanto custa ter uma VPC no GCP?
 > **🚀 Pergunta Bônus B2:** Quais são as opções para aumentar a segurança de uma VPC?
 > **🚀 Pergunta Bônus B3:** O que são endereços e intervalos de IP?
+
+Nesse arquivo estruture um conteúdo 
 
 # Feedback da sessão
 
