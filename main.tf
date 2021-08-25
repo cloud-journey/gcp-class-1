@@ -3,3 +3,7 @@ resource "google_storage_bucket_object" "learner_id_file" {
   source = "./learner-id"
   bucket = "cloud-journey"
 }
+
+resource "google_compute_network" "learner" {
+  // TODO Adicionar e documentar aqui os campos necessários para criar a rede
+}
