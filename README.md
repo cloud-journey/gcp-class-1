@@ -44,8 +44,8 @@ Cada aprendiz tem um ID, memorize o seu ID pois ele será necessário durante to
 | fagner.carvalho     | [C08C](https://github.com/cloud-journey/gcp-class-1/tree/C08C) | Fagner-Carvalho       |
 | ricardo.baptista    | [4BF8](https://github.com/cloud-journey/gcp-class-1/tree/4BF8) | ribaptista            |
 | elton.ferreira      | [08C7](https://github.com/cloud-journey/gcp-class-1/tree/08C7) | eltonbf               |
-| phillipe.morais     | [A6F0](https://github.com/cloud-journey/gcp-class-1/tree/A6F0) |                       |
-| dante.mesquita      | [AA31](https://github.com/cloud-journey/gcp-class-1/tree/AA31) |                       |
+| phillipe.morais     | [A6F0](https://github.com/cloud-journey/gcp-class-1/tree/A6F0) | phillipe-morais       |
+| dante.mesquita      | [AA31](https://github.com/cloud-journey/gcp-class-1/tree/AA31) | danteGroove           |
 
 ## Branches
 
