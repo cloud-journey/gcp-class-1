@@ -74,7 +74,7 @@ E nesse curso vamos falar especificamente da **Google Cloud**. Ao longo do curso
 - **🚀 Pergunta Bônus B2:** Quais são as opções para aumentar a segurança de uma VPC?
 - **🚀 Pergunta Bônus B3:** O que são endereços e intervalos de IP?
 
-Nesse arquivo estruture um conteúdo 
+Nesse arquivo estruture um conteúdo para que como uma boa documentação, objetiva e simples, responde as dúvidas acima para alguém que está aprendendo.
 
 # Feedback da sessão
 
