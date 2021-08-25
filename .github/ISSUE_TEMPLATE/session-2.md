@@ -12,11 +12,11 @@ assignees: vflopes
 O [Terraform](https://www.terraform.io/) é uma ferramenta para provisionar recursos de infraestrutura orquestrando seus possíveis estados através de arquivos de configuração declarativos. A forma mais comum de usá-lo é como uma [CLI](https://pt.wikipedia.org/wiki/Interface_de_linha_de_comandos). Exemplos:
 
 ```bash
-terraform init
-terraform validate
-terraform plan
-terraform apply
-terraform destroy
+terraform init # Executa rotinas de inicialização do estado, download de dependências em suas versões e etc
+terraform validate # Valida somente os arquivos Terraform quanto a sintaxe e consistência da configuração
+terraform plan # Cria o plano de mundaças
+terraform apply # Executa as ações do plano de mudanças
+terraform destroy # Destrói todos os recursos gerenciados pelo Terraform nessa configuração
 ```
 
 **Dica:** todos esses comandos aceitam parâmetros, para ver quais são os parâmetros aceitos por cada você pode adicionar um `-h` ao comando ou entrar na página de [referência dos comandos do Terraform](https://www.terraform.io/docs/cli/index.html). O exemplo abaixo é da saída após a execução do comando `terraform plan -h`:
@@ -101,6 +101,143 @@ Other Options:
   -state=statefile    A legacy option used for the local backend only. See the
                       local backend's documentation for more information.
 ```
+
+## Arquivos .tf e a HCL
+
+Para escrever um arquivo Terraform que de forma declarativa que pode especificar:
+
+- Variáveis de Entrada ([variables](https://www.terraform.io/docs/language/values/variables.html)): variáveis de entrada são como argumentos para funções.
+- Saída de Valores ([outputs](https://www.terraform.io/docs/language/values/outputs.html)): esses valores são como os valores de retorno da função
+- Provedores ([providers](https://www.terraform.io/docs/language/providers/index.html)): adicionam suporte no Terraform para novos **tipos de recursos e fontes de dados**.
+- Recursos ([resources](https://www.terraform.io/docs/language/resources/index.html)): os recursos são o elemento mais importante no Terraform. Cada bloco de recursos descreve um ou mais objetos de infraestrutura, como redes virtuais, VMs ou componentes de alto nível, como registros DNS.
+- Fontes de dados ([data sources](https://www.terraform.io/docs/language/data-sources/index.html)): as fontes de dados permitem que o Terraform use informações definidas fora do Terraform, definidas por outra configuração separada do Terraform ou modificadas por funções.
+- Módulos ([modules](https://www.terraform.io/docs/language/modules/index.html)): módulos são agrupadores e interfaces para vários recursos usados juntos.
+- Configurações do Terraform e HCL ([terraform](https://www.terraform.io/docs/language/settings/index.html)): o bloco de configuração especial `terraform` é usado para configurar alguns comportamentos do próprio Terraform, como exigir uma versão mínima do Terraform para aplicar sua configuração.
+
+Utilizamos uma linguagem desenvolvida pela Hashicorp chamada [Hashicorp Configuration Language ou HCL](https://github.com/hashicorp/hcl).
+
+## Como o Terraform funciona?
+
+Na própria página da documentação da Hashicorp um ótimo [exemplo do workflow de trabalho com o terraform](https://www.terraform.io/guides/core-workflow.html) é explicado. O Terraform funciona gerenciando os plugins que aumentam suas funcionalidades por provedor, então quando você executa um `terraform init` esse processo de gerenciar e adquirir essas dependências já está abstraído. Esses plugins são responsáveis pela interação com a interface do provedor, no caso do Google Cloud, é a API do mesmo.
+
+Cada plugin também define novos `resources` e `data sources` aceitos pelo Terraform declarados nos nossos arquivos de configuração com HCL. Esse arquivo então é executado, aplicando todas as funcionalidades como funções, condições e loops suportados pela linguagem. Isso gera um estado de saída. Esse estado de saída é comparado com o estado atual da infraestrutura e então é criado um plano de execução. É desse plano de execução inclusive que o Terraform nos dá uma previsão de quais mudanças serão aplicadas.
+
+Uma coisa importante de se perceber é o que Terraform constrói um grafo de relação entre os recursos, ou seja, ele consegue entender se um recurso depende do outro pois algo deve ser criado depois de algo. Algumas vezes esse grafo não consegue ser inferido e temos opções de manualmente dizer quais são as relações de dependências (com o atributo `depends_on`).
+
+A documentação oficial para os recursos (resources) e fontes de dados (data sources) para o provider `google` se encontra [aqui](https://registry.terraform.io/providers/hashicorp/google/latest/docs).
+
+## Um exemplo de estrutura de repositório
+
+Vamos exemplificar com a estrutura repositório para criar um arquivo num bucket na Google Cloud.
+
+**Estrutura de arquivos e pastas de repositório:**
+
+```
+--|📄README.md
+--|📄backend.tf # Arquivo para especificar onde o Terraform irá salvar o estado da infraestrutura.
+--|📄terraform.tf # Arquivo para especificar providers e configurações do terraform.
+--|📄main.tf # Para declarar estado dos recursos e módulo da infraestrutura.
+--|📄variables.tf # Declaração de variáveis do terraform.
+--|📄outputs.tf # Declaração de valores de saída do estado da infraestrutura.
+--|📁modules
+----|📁meu-modulo
+------|📄README.md
+------|📄main.tf
+------|📄variables.tf
+------|📄outputs.tf
+```
+
+Exemplo de `/main.tf`:
+
+```hcl
+# Isso é um comentário em HCL
+# Cria um arquivo em um bucket no GCS (Google Cloud Storage)
+# Dica: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_object
+resource "google_storage_bucket_object" "learner_id_file" {
+  name   = "gcp-class/1/${var.learner_id}"
+  source = "./learner-id"
+  bucket = "cloud-journey"
+}
+```
+
+Exemplo de `/terraform.tf`:
+
+```hcl
+# Especificamos parâmetros do terraform e provedores
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "3.79.0"
+    }
+    google-beta = {
+      source  = "hashicorp/google-beta"
+      version = "3.79.0"
+    }
+  }
+}
+
+provider "google" {
+}
+
+provider "google-beta" {
+}
+```
+
+Exemplo de `/backend.tf`:
+
+```hcl
+# Onde o terraform deve armazenar o estado da infraestrutura
+terraform {
+  backend "gcs" {
+    bucket = "cloud-journey"
+    prefix = "terraform-state/gcp-class-1"
+  }
+}
+```
+
+Exemplo de `/variables.tf`:
+
+```hcl
+# Uma variável de entrada
+# Dica: https://www.terraform.io/docs/language/values/variables.html#variable-definition-precedence
+variable "learner_id" {
+  type        = string
+  description = "The learner four-characters identifier"
+}
+```
+
+Exemplo de `/outputs.tf`:
+
+```hcl
+# Um valor de saíde que depende do nosso resource
+output "file_md5hash" {
+  description = "Uploaded content md5 hash"
+  value       = google_storage_bucket_object.learner_id_file.md5hash
+}
+```
+
+## 👾 Um desafio para as equipes
+
+> Precisamos de uma solução na Google Cloud e ela vai precisar de uma rede!
+
+### Para isso vamos às regras do desafio:
+
+- Devemos utilizar o Terraform;
+- Cada equipe criará sua branch nesse repositório a partir da branch `main` (dica: `git checkout main && git pull origin main && git checkout -b WIP/minha-equipe/session-2`);
+- A equipe terminar o desenvolvimento do desafio, uma pessoa da equipe deve avisar nessa issue;
+- Ao concluir a solução, cada aprendiz da equipe deve abrir um **Pull Request** para puxar as alterações da branch `WIP/minha-equipe/session-2` para a branch com o ID de aprendiz de quem está criando o PR;
+
+### 📀 O que é esperado de resultado do desafio:
+
+1. Que seja criado um recurso [google_compute_network](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_network) no arquivo `/main.tf` desse repositório;
+2. Que cada campo desse recurso esteja apropriadamente explicado/documento como comentários no próprio arquivo `/main.tf`;
+3. Que um PR seja aberto da branch de trabalho da equipe para a branch de aprendiz de cada pessoa da equipe;
+
+### 🚀 Bônus (se for possível entregar, a solução fica mais completa)
+
+1. No arquivo `/variables.tf` uma variável de entrada que é um tipo `string` que coloca um prefixo no nome da rede que é criada no `/main.tf`;
+2. Um arquivo `/outputs.tf` que retorna o valor do atributo `.id` do recurso `google_compute_network`;
 
 # Feedback da sessão
 
