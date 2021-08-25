@@ -26,9 +26,9 @@ Cada aprendiz tem um ID, memorize o seu ID pois ele será necessário durante to
 | luciano.torquato    | [CFA1](https://github.com/cloud-journey/gcp-class-1/tree/CFA1) | Ltorquato10           |
 | luiz.andrade        | [606B](https://github.com/cloud-journey/gcp-class-1/tree/606B) | Luizfvandrade         |
 | marisa.cavalcanti   | [A709](https://github.com/cloud-journey/gcp-class-1/tree/A709) |                       |
-| paulo.carmo         | [09B0](https://github.com/cloud-journey/gcp-class-1/tree/09B0) |                       |
+| paulo.carmo         | [09B0](https://github.com/cloud-journey/gcp-class-1/tree/09B0) | PHCarmo               |
 | ricson.sampaio      | [AC1C](https://github.com/cloud-journey/gcp-class-1/tree/AC1C) | RicsonSampaio         |
-| thiago.castilho     | [FCF9](https://github.com/cloud-journey/gcp-class-1/tree/FCF9) |                       |
+| thiago.castilho     | [FCF9](https://github.com/cloud-journey/gcp-class-1/tree/FCF9) | ThiCastilho           |
 | thomas.bispo        | [3A9D](https://github.com/cloud-journey/gcp-class-1/tree/3A9D) | thomasnakamura        |
 | tiago.alexandre     | [B675](https://github.com/cloud-journey/gcp-class-1/tree/B675) | tasale                |
 | ygor.pereira        | [7949](https://github.com/cloud-journey/gcp-class-1/tree/7949) |                       |
@@ -36,7 +36,7 @@ Cada aprendiz tem um ID, memorize o seu ID pois ele será necessário durante to
 | bruno.avelar        | [139D](https://github.com/cloud-journey/gcp-class-1/tree/139D) | AvelarB               |
 | claudemir.junior    | [B0AE](https://github.com/cloud-journey/gcp-class-1/tree/B0AE) | claudemirAvelino      |
 | elton.luiz          | [F029](https://github.com/cloud-journey/gcp-class-1/tree/F029) | eltonpeixoto          |
-| jonatha.brassolatti | [F33E](https://github.com/cloud-journey/gcp-class-1/tree/F33E) |                       |
+| jonatha.brassolatti | [F33E](https://github.com/cloud-journey/gcp-class-1/tree/F33E) | jbrasso               |
 | julio.barcellos     | [C4C4](https://github.com/cloud-journey/gcp-class-1/tree/C4C4) |                       |
 | klelber.xavier      | [E855](https://github.com/cloud-journey/gcp-class-1/tree/E855) | betodoescher          |
 | lucas.praxedes      | [5BC0](https://github.com/cloud-journey/gcp-class-1/tree/5BC0) | LucasPinheiroCarvalho |
