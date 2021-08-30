@@ -6,7 +6,5 @@ resource "google_storage_bucket_object" "learner_id_file" {
 
 resource "google_compute_network" "vpc_network" {
   #Definição do nome da VPC
-  name = "tabajaras-network" 
+  name = "${var.prefix}-tabajaras-network" 
 }
-
-
