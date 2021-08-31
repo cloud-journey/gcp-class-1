@@ -8,4 +8,6 @@ variable "prefix" {
   type        = string
   #descricao da funcao
   description = "create an prefix in the network name"
+  #valor padrao
+  default = "tmp"
 }
