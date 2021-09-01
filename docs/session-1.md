@@ -35,4 +35,5 @@ Basicamente o Google Cloud Platform (_GCP_) é uma Virtual Private Cloud (_VPC_)
 
 ## 7. O que são endereços e intervalos de IP?
 -----------------------------
-
+- Endereços: Permitem a comunicação dos recursos do Google Cloud com outros recursos no serviço, em redes locais ou na Internet pública.
+- Intervalos: Qquando existem diversos serviços em execução na VM, você pode atribuir um IP a cada serviço, como alias.
