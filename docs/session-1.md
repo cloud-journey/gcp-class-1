@@ -13,24 +13,30 @@ _Google Cloud Platform_ é uma suíte (conjunto de ferramentas) de computação 
 - Como a VPC está inserido dentro do contexto do GCP?
 Basicamente o Google Cloud Platform (_GCP_) é uma Virtual Private Cloud (_VPC_), ele proporciona redes globais, escalonáveis e flexíveis para seus recursos e serviços baseados em nuvem.
 
+
 ## 2. Quais são os componentes de uma VPC?
 -----------------------------
+
 
 
 ## 3. Quais são os conceitos com um breve resumo sobre redes que devo me atentar ao pensar em uma VPC?
 -----------------------------
 
 
+
 ## 4. Para o que uma VPC serve? Cite um exemplo.
 -----------------------------
+
 
 
 ## 5. Quanto custa ter uma VPC no GCP?
 -----------------------------
 
 
+
 ## 6. Quais são as opções para aumentar a segurança de uma VPC?
 -----------------------------
+
 
 
 ## 7. O que são endereços e intervalos de IP?
