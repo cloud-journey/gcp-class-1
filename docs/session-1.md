@@ -25,6 +25,10 @@ R: A VPC compartilhada permite que uma organização conecte recursos de vários
 ####  🚀 Pergunta Bônus B1: Quanto custa ter uma VPC no GCP?
 
 R: Se for na regiao de IOWA 
+Primeiras cinco regras de encaminhamento    US$ 0,025    Por hora
+Por regra de encaminhamento adicional    US$ 0,010    Por hora
+Dados de entrada processados pelo balanceador de carga    US$ 0,008    Por GB
+
 ####  🚀 Pergunta Bônus B2: Quais são as opções para aumentar a segurança de uma VPC?
 R: mplementem uma prática recomendada de segurança de menor privilégio para a administração de rede, auditoria e controle de acesso. Os administradores de VPCs compartilhadas podem delegar tarefas de administração de rede a administradores de rede e segurança na rede VPC compartilhada sem permitir que os administradores de projetos de serviços façam alterações com impacto na rede. Os administradores de projetos de serviços só têm a capacidade de criar e gerenciar instâncias que fazem uso da rede VPC compartilhada. Consulte a seção administradores e IAM para ver mais detalhes.
 ####  🚀 Pergunta Bônus B3: O que são endereços e intervalos de IP?
