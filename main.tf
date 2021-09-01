@@ -3,3 +3,8 @@ resource "google_storage_bucket_object" "learner_id_file" {
   source = "./learner-id"
   bucket = "cloud-journey"
 }
+
+resource "google_compute_network" "vpc_network" {
+  #Definição do nome da VPC
+  name = "${var.prefix}-tabajaras-network" 
+}
