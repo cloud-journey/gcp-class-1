@@ -16,7 +16,15 @@ Basicamente o Google Cloud Platform (_GCP_) é uma Virtual Private Cloud (_VPC_)
 
 ## 2. Quais são os componentes de uma VPC?
 -----------------------------
+Uma _Virtual Private Cloud_ possui quatro componentes principais _Subnets_, _Internet Gateway_, _NAT Gateway_ e _Route Table_.
 
+- As _subnets_ são espaços de rede que fazem parte da VPC. Essas podem ser ou subnets privadas ou subnets públicas, dependendo da sua configuração. Dependendo do tipo de subnet, o acesso à internet dela é feita de uma forma diferente, seja por Internet Gateway ou NAT Gateway.
+
+- O _Internet Gateway_ é responsável por conectar a VPC com a internet. Todo tráfego de entrada e saída da VPC passa por ele. Ele é a forma de conexão utilizada por subnets públicas. Cada VPC pode ter no máximo um Internet Gateway.
+
+- O _NAT Gateway_ fornece acesso a internet para recursos de subnets privadas. Ele é utilizado para tráfego de saída, expondo um único endereço IP para os endereços externos. O NAT Gateway é provisionado em uma subnet pública, e todo o tráfego externo das subnets privadas passa por ele.
+
+- O _Route Table_ é responsável por definir o comportamento das conexões de uma subnet para o destino correto. É ele que direciona o tráfego externo (0.0.0.0/0) de conexões da internet em subnets públicas para o Internet Gateway, ou que direciona o tráfego externo de uma subnet privada para um NAT gateway.
 
 
 ## 3. Quais são os conceitos com um breve resumo sobre redes que devo me atentar ao pensar em uma VPC?
