@@ -31,6 +31,8 @@ Primeiramente criamos uma VPC Network (VPC somente ou Network somente, tem o mes
 
 Lembre-se, uma VPC no Google é um recurso global, uma subnet (subnetwork ou subrede) é um recurso regional. É importante falar também do [firewall](https://cloud.google.com/vpc/docs/firewalls) logo no início, afinal, **segurança é um assunto que nunca se deixa para depois.** No GCP, o firewall está diretamente relacionado com uma VPC de forma também global.
 
+É importante também definir as [rotas](https://cloud.google.com/vpc/docs/routes) que direcionarão o tráfego através dos endereços de origem e destino dos pacotes.
+
 A partir desse momento as operações de provisionamento e configuração dependem dos requerimentos da arquitetura que está sendo implementada.
 
 ## Uma pausa para conceitos importantes
