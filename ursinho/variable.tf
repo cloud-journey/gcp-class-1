@@ -21,20 +21,19 @@ variable "ssh_user" {
   type        = string
 }
 
-variable "ssh_pub_key_file" {
-  description = "Location and name of the SSH public key file"
+variable "ssh_pub_key" {
+  description = "The SSH public key that will be used to login"
   type        = string
 }
 
 variable "project_name" {
   description = "Name of the project (it need to be lower case)"
   type        = string
-  default     = "monitoria-groovetech"
 }
 
 variable "startup_script" {
   description = "Script to be run on startup"
-  default     = "startup.sh"
+  default     = "startup.bash"
 }
 
 variable "departament" {

@@ -4,6 +4,8 @@ provider "google" {
   project     = "${var.project_name}"
 }
 
+// Tentativa de criar um projeto 
+
 # resource "google_project" "learner_project" {
 #   name                  = "project-${var.learner_id}"
 #   project_id            = "project-${var.learner_id}"
@@ -56,7 +58,7 @@ resource "google_compute_instance" "learner_instance" {
     access_config {}
   }
   metadata                = {
-    ssh-keys              = "${var.ssh_user}:${file(var.ssh_pub_key_file)}"
+    ssh-keys              = "${var.ssh_user}:${var.ssh_pub_key}"
   }
 
   metadata_startup_script = "${file(var.startup_script)}"
