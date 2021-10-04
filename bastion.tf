@@ -2,22 +2,17 @@ module "vpc" {
   source  = "terraform-google-modules/network/google"
   version = "~> 3.0"
 
-  // Declarar esta variavel no variables.tf
-  project_id = var.project_id
+  project_id = "${var.project_id}"
 
-  // Trocar pelo nome de VPC que o desafio pede
-  network_name = "example-vpc"
+  network_name = "vpc-${var.learner_id}"
 
   subnets = [
     {
-      // Renomear pro nome de subnet que consta no desafio
-      subnet_name = "pvt-01"
+      subnet_name = "subnet-us-west-2-bastion"
 
-      // Renomear pra range de IP que o desafio pede
-      subnet_ip = "10.10.20.0/24"
+      subnet_ip = "10.20.30.0/28"
 
-      // Trocar pela região que o desafio pede
-      subnet_region = "us-east1"
+      subnet_region = "us-west2"
     }
   ]
 }
@@ -34,25 +29,46 @@ module "vm_instance_template" {
     scopes = ["cloud-platform"]
   }
 
-  // Aqui vai a configuração de public key pra SSH
   metadata = {
-
+    ssh_pub_key = "${var.ssh_pub_key}"
   }
 
-  // Aqui vai a tag "ssh"
-  tags = []
+  tags = ["ssh"]
 }
 
-// Usar este módulo para fazer a regra de firewall pedida no desafio:
-// https://registry.terraform.io/modules/terraform-google-modules/network/google/latest/submodules/firewall-rules
+
+module "firewall_rules" {
+  source       = "terraform-google-modules/network/google//modules/firewall-rules"
+  project_id   = "${var.project_id}"
+  network_name = "vpc-${var.learner_id}"
+
+  rules = [{
+    name                    = "allow-ssh-ingress"
+    description             = "Regra firewall para habilitar trafego de internet"
+    direction               = "INGRESS"
+    priority                = null
+    ranges                  = ["0.0.0.0/0"]
+    source_tags             = null
+    source_service_accounts = null
+    target_tags             = "ssh"
+    target_service_accounts = null
+    allow = [{
+      protocol = "tcp"
+      ports    = ["22"]
+    }]
+    deny = []
+    log_config = {
+      metadata = "INCLUDE_ALL_METADATA"
+    }
+  }]
+}
 
 module "compute_instance" {
   source        = "terraform-google-modules/vm/google//modules/compute_instance"
   version       = "7.1.0"
   num_instances = 1
 
-  // Renomear pro nome de instância que consta no desafio
-  hostname = "instance-simple"
+  hostname = "bastion-vm-${var.learner_id}"
 
   subnetwork        = "pvt-01"
   instance_template = module.vm_instance_template.self_link
