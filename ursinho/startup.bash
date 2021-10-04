@@ -1,3 +1,4 @@
+# Script usado para instalar o docker e adicionar o usuário informado na chave SSH no grupo Docker
 sudo apt update
 sudo apt install --yes apt-transport-https ca-certificates curl gnupg2 software-properties-common
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -

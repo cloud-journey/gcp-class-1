@@ -1,3 +1,4 @@
+# Todas as variáveis usadas dentro de main.tf são criadas aqui e os valores informados em terraform.tfvars.
 variable "learner_id" {
   description  = "Learner ID from Cloud GCP class (remember it has to be lower case)"
   type         = string
