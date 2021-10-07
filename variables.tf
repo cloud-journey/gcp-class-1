@@ -13,3 +13,18 @@ variable "ssh_pub_key" {
   description = "SSH Key for VM connection"
 }
 
+variable "subnetwork_name" {
+  type        = string
+  description = "The learner four-characters identifier"
+}
+
+
+variable "user" {
+  type        = string
+  description = "Usuario para acesso a maquina"
+}
+
+variable "script" {
+  type = string
+  description = "Script Docker"
+}
